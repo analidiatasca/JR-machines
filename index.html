@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <link href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body style="background-color: bisque;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -49,13 +51,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="img/OIP.webp" class="d-block w-100" alt="..." style="height: 700px;">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="img/OIP.webp" class="d-block w-100" alt="..." style="height: 700px;">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="img/OIP.webp" class="d-block w-100" alt="..." style="height: 700px;">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -84,20 +86,20 @@
   </div>
 </div>
 <!-- SOBRE OCULTO -->
-    <button type="button" class="btn btn-primary btn-sm" style="background-color: brown !important; color: white; border: none;">Small button</button>
+    <button id="mostrar1" type="button" class="btn btn-primary btn-sm" style="background-color: brown !important; color: white; border: none; ">Mostrar mais</button>
     <div class="card">
-  <div class="card-body" style="background-color: bisque; border: 1px solid black;">
+  <div id="sobreoculto" class="card-body" style="background-color: bisque; border: 1px solid black; display: none;">
     This is some text within a card body.
   </div>
 </div>
 <!-- PRODUTOS OCULTOS -->
-    <button type="button" class="btn btn-primary btn-sm" style="background-color: brown !important; color: white; border: none; margin-top: ;">Small button</button>
+    <button id="mostrar2" type="button" class="btn btn-primary btn-sm" style="background-color: brown !important; color: white; border: none; margin-top: ;">Produtos</button>
 <!-- CARDS PRODUTOS -->
- <div class="container my-4">
+ <div class="container my-4" id="prodoculto" style="display: none;">
  <div class="row g-1">
  <div class="col-12 col-sm-6 col-md-4">
-    <div id="prod" class="card produto-card" style="width: 18rem; background-color: brown !important; border: 1px solid black; text-align: center; display: flex; flex-wrap: wrap; gap: 20px; margin-left: 50px;">
-      <img src="..." class="card-img-top" alt="...">
+    <div id="prod" class="card produto-card" style="width: 18rem; background-color: brown !important; border: 1px solid black; text-align: center; display: flex; flex-wrap: wrap; gap: 5px; margin-left: 50px;">
+      <img src="img/OIP.webp" class="card-img-top" alt="..." style="height: 200px;">
       <div class="card-body" style="background-color: bisque; ">
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
     </div>
@@ -155,5 +157,51 @@
     </div>
   </div>
 </div>
+<script>
+    // ligar evento (linha separada)
+    document.getElementById("mostrar1").addEventListener("click", mostrarSobreOculto);
+
+    // função separada e nomeada
+    function mostrarSobreOculto() {
+        const card = document.getElementById("sobreoculto");
+        // debug rápido: aparece no console quando clicar
+        console.log("clicou!");
+
+        if (card.style.display === "none" || card.style.display === "") {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+        let texto = document.getElementById("sobreoculto").text();
+        if (texto === "Mostrar mais") {
+          document.getElementById("sobreoculto").text("Mostrar menos");
+         }
+         else {
+          document.getElementById("sobreoculto").text("Mostrar mais");
+         }
+
+    }
+</script>
+<script>
+    // ligar evento (linha separada)
+    document.getElementById("mostrar2").addEventListener("click", mostrarSobreOculto);
+
+    // função separada e nomeada
+    function mostrarSobreOculto() {
+        const card = document.getElementById("prodoculto");
+       
+
+        // debug rápido: aparece no console quando clicar
+        console.log("clicou!");
+
+        if (card.style.display === "none" || card.style.display === "") {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    }
+</script>
 </body>
 </html>
